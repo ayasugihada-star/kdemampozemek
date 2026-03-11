@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green-deep: #1a3a2a;
+  --green-mid: #2d5a3d;
+  --green-light: #4a7c5e;
+  --green-pale: #d4e8db;
+  --cream: #f7f4ef;
+  --warm-white: #fdfcfa;
+  --slate: #3d4a42;
+  --text-muted: #7a8a80;
+  --gold: #b8955a;
+  --gold-light: #d4b07a;
+  --border: #e2ddd6;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--warm-white);
+  color: var(--slate);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Shared section layout ─────────────────── */
+.section {
+  padding: 96px 5vw;
+}
+
+.sectionInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sectionLabel::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.sectionTitle {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--green-deep);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.sectionSub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+/* ── Fade-up animation ─────────────────────── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Buttons ───────────────────────────────── */
+.btnPrimary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--gold);
+  color: var(--green-deep);
+  font-weight: 500;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s, transform 0.15s;
+  border: none;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+.btnPrimary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.btnGhost {
+  display: inline-block;
+  padding: 13px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: border-color 0.2s, color 0.2s;
+  background: none;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+
+.btnGhost:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+/* ── Toast ─────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
+  background: var(--green-deep);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: none;
+  opacity: 1;
+}

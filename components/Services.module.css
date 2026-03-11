@@ -1,0 +1,190 @@
+.section {
+  padding: 96px 5vw;
+  background: var(--cream);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--green-deep);
+  line-height: 1.2;
+}
+
+.sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  max-width: 420px;
+  line-height: 1.8;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2px;
+}
+
+/* Card */
+.card {
+  background: var(--warm-white);
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--green-deep);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(26, 58, 42, 0.1);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 20px;
+  background: var(--green-pale);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-mid);
+}
+
+.icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cardTitle {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--green-deep);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  border: 1px solid var(--green-pale);
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--green-pale);
+}
+
+/* CTA card */
+.ctaCard {
+  background: var(--green-deep);
+  padding: 44px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.ctaText {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.ctaText em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.ctaBtn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--gold);
+  color: var(--green-deep);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.ctaBtn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 580px) {
+  .grid { grid-template-columns: 1fr; }
+}
